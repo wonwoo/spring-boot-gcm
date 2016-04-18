@@ -65,7 +65,7 @@ public class SenderTest {
   private final int ttl = 108;
   private final String authKey = "4815162342";
   private final JSONParser jsonParser = new JSONParser();
-  
+
   private final Message message =
       new Message.Builder()
           .collapseKey(collapseKey)
@@ -91,7 +91,7 @@ public class SenderTest {
   @Spy private Sender sender = new Sender(authKey);
 
   @Mock private HttpURLConnection mockedConn;
-  private final ByteArrayOutputStream outputStream = 
+  private final ByteArrayOutputStream outputStream =
       new ByteArrayOutputStream();
   private Result result;
 
@@ -877,7 +877,7 @@ public class SenderTest {
   /**
    * Sets the expectations of the HTTP connection.
    */
-  private void setResponseExpectations(int statusCode, String response) 
+  private void setResponseExpectations(int statusCode, String response)
       throws IOException {
     when(mockedConn.getResponseCode()).thenReturn(statusCode);
     InputStream inputStream = (response == null) ?

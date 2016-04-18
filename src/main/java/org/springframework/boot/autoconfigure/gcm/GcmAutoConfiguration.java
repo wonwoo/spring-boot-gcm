@@ -1,6 +1,7 @@
 package org.springframework.boot.autoconfigure.gcm;
 
 import com.google.android.gcm.server.Sender;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -15,11 +16,8 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties(GcmProperties.class)
 public class GcmAutoConfiguration {
 
-    private final GcmProperties properties;
-
-    protected GcmAutoConfiguration(GcmProperties properties) {
-        this.properties = properties;
-    }
+    @Autowired
+    private GcmProperties properties;
 
     @Bean
     public Sender sender() {
