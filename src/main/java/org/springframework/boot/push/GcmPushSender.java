@@ -4,12 +4,11 @@ package org.springframework.boot.push;
 import com.google.android.gcm.server.Message;
 import com.google.android.gcm.server.MulticastResult;
 import com.google.android.gcm.server.Sender;
-import org.springframework.util.Assert;
 
 import java.io.IOException;
-import java.util.Arrays;
 
-import static java.awt.SystemColor.info;
+import static org.springframework.util.Assert.isTrue;
+import static org.springframework.util.Assert.notNull;
 import static org.springframework.util.ObjectUtils.isEmpty;
 
 
@@ -29,8 +28,10 @@ public class GcmPushSender implements PushSender {
   }
 
   public MulticastResult send(Message message, int retries) {
-    Assert.notNull(message, "message should not be null.");
-    Assert.isTrue(!isEmpty(message.getRegIds()), "regIds should not be Null or empty string.");
+    notNull(message, "message should not be null.");
+    isTrue(!isEmpty(message.getRegIds()), "regIds should not be Null or empty string.");
+    isTrue(message.getRegIds().size() <= 1000, "limit exception");
+
     try {
       return sender.send(message, message.getRegIds(), retries);
     } catch (IOException e) {
