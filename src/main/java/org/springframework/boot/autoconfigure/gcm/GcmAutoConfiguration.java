@@ -10,6 +10,9 @@ import org.springframework.boot.push.PushSender;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Created by wonwoo on 2016. 4. 16..
+ */
 @Configuration
 @ConditionalOnClass(Sender.class)
 @ConditionalOnProperty(prefix = "spring.push.gcm", name = "key")

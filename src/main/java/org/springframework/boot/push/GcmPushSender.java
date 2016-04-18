@@ -11,7 +11,9 @@ import static org.springframework.util.Assert.isTrue;
 import static org.springframework.util.Assert.notNull;
 import static org.springframework.util.ObjectUtils.isEmpty;
 
-
+/**
+ * Created by wonwoo on 2016. 4. 16..
+ */
 public class GcmPushSender implements PushSender {
 
   private static final int RE_TRIES = 3;
