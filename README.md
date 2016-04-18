@@ -71,3 +71,4 @@ spring.push.gcm.key=API_KEY
 ## etc
 1. limit 1000
 2. apns not support
+3. default retries 3
