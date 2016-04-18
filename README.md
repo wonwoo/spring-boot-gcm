@@ -52,6 +52,11 @@ public class DemoApplicationTests {
 	}
 }
 ```
+application.properties 
+```
+spring.push.gcm.key=API_KEY
+```
+
 
 ## API
 
