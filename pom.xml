@@ -8,6 +8,14 @@
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-gcm</artifactId>
     <version>0.1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <properties>
+        <java-version>1.6</java-version>
+        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+        <github.global.server>github</github.global.server>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -83,22 +91,21 @@
                     <outputDirectory>${project.build.directory}/mvn-repo
                     </outputDirectory>
                     <branch>refs/heads/mvn-repo</branch>
+                    <merge>true</merge>
                     <includes>
                         <include>**/*</include>
                     </includes>
-                    <excludes>
-                        <exclude>**/*.properties</exclude>
-                    </excludes>
                     <repositoryName>spring-boot-gcm</repositoryName>
                     <repositoryOwner>wonwoo</repositoryOwner>
                     <server>github</server>
                 </configuration>
                 <executions>
+                    <!-- run site-maven-plugin's 'site' target as part of the build's normal 'deploy' phase -->
                     <execution>
                         <goals>
                             <goal>site</goal>
                         </goals>
-                        <phase>site</phase>
+                        <phase>deploy</phase>
                     </execution>
                 </executions>
             </plugin>
