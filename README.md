@@ -1,4 +1,4 @@
-~~# spring-boot-gcm~~
+# spring-boot-gcm
 
 ```xml
 	<repositories>
